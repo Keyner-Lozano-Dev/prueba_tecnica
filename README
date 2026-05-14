@@ -1,0 +1,39 @@
+# Sistema de Gestión de Nómina y Personal
+
+Este proyecto es una aplicación web desarrollada en PHP para la administración de empleados, permitiendo gestionar registros de manera eficiente mediante una interfaz de doble columna (Formulario y Listado). El sistema utiliza una arquitectura orientada a objetos (POO) y una base de datos relacional para garantizar la persistencia y organización de la información.
+
+## Arquitectura de Archivos
+
+La estructura del proyecto ha sido diseñada siguiendo una lógica de modularización para facilitar el mantenimiento:
+
+- **config_db.php**: Centraliza la configuración de la conexión mediante la clase `ConectorLocal`, incluyendo parámetros específicos como el puerto y el juego de caracteres UTF-8.
+- **gestor_nomina.php**: Contiene la clase `GestorNomina`, la cual encapsula toda la lógica de negocio (CRUD), consultas preparadas y manipulación de relaciones muchos-a-muchos para los roles.
+- **index.php**: Punto de entrada principal que integra el formulario de registro y la tabla de visualización de personal en una vista de alto rendimiento.
+- **editar_ficha.php**: Interfaz dedicada a la modificación de perfiles existentes, con precarga de datos dinámica.
+- **guardar.php**: Controlador unificado que procesa tanto inserciones como actualizaciones, optimizando la lógica del servidor.
+- **borrar.php**: Módulo encargado de la baja lógica y física de los registros del sistema.
+- **validar_form.js**: Script de validación en el lado del cliente para asegurar la integridad de los datos antes del envío.
+- **styles.css**: Definición de la identidad visual basada en una paleta azul corporativa y un sistema de distribución flexible (Flexbox).
+
+## Requisitos del Entorno
+
+- Servidor local: XAMPP, WAMP o Laragon.
+- Versión de PHP: 8.0 o superior recomendada.
+- Motor de Base de Datos: MySQL / MariaDB (Puerto por defecto: 3306).
+
+## Guía de Instalación
+
+1. **Configuración de Datos**: Importe el archivo `script.sql` en su gestor de base de datos (phpMyAdmin) para crear las tablas `empleados`, `areas`, `roles` y `empleado_rol`.
+2. **Ajuste de Conexión**: En caso de que su servidor utilice un puerto distinto o requiera credenciales específicas, modifique las propiedades privadas en `config_db.php`.
+3. **Despliegue**: Ubique la carpeta del proyecto en el directorio raíz de su servidor local (ej. `htdocs`).
+4. **Acceso**: Inicie los servicios de Apache y MySQL, y navegue a la ruta local correspondiente en su explorador.
+
+## Funcionalidades Destacadas
+
+- **Diseño Ergonómico**: Distribución en dos bloques laterales para minimizar el desplazamiento del usuario.
+- **Seguridad**: Implementación de Sentencias Preparadas (Prepared Statements) para mitigar riesgos de inyección SQL.
+- **Validación Dual**: Comprobación de campos obligatorios mediante JavaScript y sanitización de datos en PHP.
+- **Interfaz Intuitiva**: Uso de iconografía técnica (FontAwesome) y estados visuales en los botones de acción.
+
+---
+Documentación técnica actualizada para la versión de producción.
